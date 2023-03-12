@@ -4,5 +4,12 @@ services:
      leet9-backend:
          build:
              context: .
+         command: node server.js
          ports:
              - 3000:3000
+         netwoks: 
+             - dev-network
+
+networks:
+    dev-network:
+        driver: bridge
