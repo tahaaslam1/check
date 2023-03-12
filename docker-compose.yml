@@ -7,7 +7,7 @@ services:
          command: node server.js
          ports:
              - 3000:3000
-         netwoks: 
+         networks:
              - dev-network
 
 networks:
