@@ -12,9 +12,17 @@ services:
     environment:
       NODE_ENV: development
       DEBUG: nodejs-docker-express:*
+    networks:
+      - dev-network
   nginx:
     restart: always
     build:
       context: ./nginx
     ports:
       - "80:80"
+    networks:
+      - dev-network
+
+networks:
+    dev-network:
+        driver: bridge
