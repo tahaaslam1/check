@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  web:
+  leet9-backend:
     build:
       context: ./
       target: dev
