@@ -12,19 +12,19 @@ services:
     environment:
       NODE_ENV: development
       DEBUG: nodejs-docker-express:*
-    networks:
-      - dev-network
-  nginx:
-    restart: always
-    build:
-      context: ./nginx
-    ports:
-      - "80:80"
-    networks:
-      - dev-network
-    depends_on:
-    - leet9-backend
+    # networks:
+    #   - dev-network
+  # nginx:
+  #   restart: always
+  #   build:
+  #     context: ./nginx
+  #   ports:
+  #     - "80:80"
+  #   # networks:
+  #   #   - dev-network
+  #   depends_on:
+  #   - leet9-backend
 
-networks:
-    dev-network:
-        driver: bridge
+# networks:
+#     dev-network:
+#         driver: bridge
