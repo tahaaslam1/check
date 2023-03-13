@@ -2,7 +2,7 @@ version: '3.8'
 services:
   leet9-backend:
     build:
-      context: ./
+      context: ./src
       target: dev
     volumes:
       - .:/src
@@ -12,3 +12,9 @@ services:
     environment:
       NODE_ENV: development
       DEBUG: nodejs-docker-express:*
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
