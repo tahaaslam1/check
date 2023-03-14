@@ -1,17 +1,19 @@
-'use strict';
+"use strict";
 
-const express = require('express');
+const express = require("express");
+const config = require("./config");
 
 // Constants
 const PORT = 3000;
-const HOST = '0.0.0.0';
+const HOST = "0.0.0.0";
 
 // App
 const app = express();
-app.get('/', (req, res) => {
-  res.send('v1');
+app.get("/", (req, res) => {
+  res.send("v1");
 });
 
 app.listen(PORT, HOST, () => {
+  console.log(`env >> ${config.DB_URI}`);
   console.log(`Running on http://${HOST}:${PORT}`);
 });
