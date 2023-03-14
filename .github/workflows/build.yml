@@ -22,7 +22,7 @@ jobs:
       run: docker build -t cicd-pipeline ./src
     
     - name: Give Docker Image tag
-      run: docker tag cicd-pipeline:${{ github.event.head_commit.message }} ${{secrets.DOCKER_USERNAME}}/cicd-pipeline:${{ github.event.head_commit.message }}
+      run: docker tag cicd-pipeline:latest ${{secrets.DOCKER_USERNAME}}/cicd-pipeline:latest
       
     - name: Push Docker Image     
-      run: docker push ${{secrets.DOCKER_USERNAME}}/cicd-pipeline:${{ github.event.head_commit.message }}
+      run: docker push ${{secrets.DOCKER_USERNAME}}/cicd-pipeline:latest
