@@ -10,11 +10,11 @@ const HOST = "0.0.0.0";
 // App
 const app = express();
 app.get("/", (req, res) => {
-  res.send("v2");
+  res.send("v2-b1");
 });
 
 app.listen(PORT, HOST, () => {
   console.log(`env >> ${config.DEBUG}`);
-  console.log("check");
+  console.log("checking");
   console.log(`Running on http://${HOST}:${PORT}`);
 });
