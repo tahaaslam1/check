@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, HOST, () => {
-  // console.log(`env >> ${config.DB_URI}`);
+  console.log(`env >> ${config.DEBUG}`);
   console.log("check");
   console.log(`Running on http://${HOST}:${PORT}`);
 });

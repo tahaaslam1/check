@@ -18,4 +18,4 @@ jobs:
         run: sudo docker rm -f cide-pipeline-container || true
 
       - name: Run docker container
-        run: sudo docker run -d -p 3000:3000 --name cide-pipeline-container ${{secrets.DOCKER_USERNAME}}/cicd-pipeline
+        run: sudo docker run -e DEBUG=taha -d -p 3000:3000 --name cide-pipeline-container ${{secrets.DOCKER_USERNAME}}/cicd-pipeline
