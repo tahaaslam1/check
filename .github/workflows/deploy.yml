@@ -15,13 +15,17 @@ jobs:
         env: 
          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-        run: sudo docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | sudo docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: Pull docker image
         run: sudo docker pull ${{secrets.DOCKER_USERNAME}}/cicd-pipeline:latest
+
+      - name: Logout from Docker hub
+        run: sudo docker logout
 
       - name: Delete old docker container
         run: sudo docker rm -f cide-pipeline-container || true
 
       - name: Run docker container
         run: sudo docker run -e DEBUG=${{secrets.DEBUG}} -d -p 3000:3000 --name cide-pipeline-container ${{secrets.DOCKER_USERNAME}}/cicd-pipeline
+
